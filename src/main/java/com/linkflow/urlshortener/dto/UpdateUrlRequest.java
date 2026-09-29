@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 
 import java.time.Instant;
 
-public class CreateUrlRequest {
+public class UpdateUrlRequest {
 
     @NotBlank(message = "URL is required")
     @Size(max = 2048, message = "URL must not exceed 2048 characters")
@@ -18,7 +18,7 @@ public class CreateUrlRequest {
 
     private Instant expiresAt;
 
-    public CreateUrlRequest() {
+    public UpdateUrlRequest() {
     }
 
     public String getOriginalUrl() {

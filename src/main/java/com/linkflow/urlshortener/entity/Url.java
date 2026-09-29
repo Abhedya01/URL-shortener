@@ -21,6 +21,8 @@ public class Url {
     @Column(nullable = false, updatable = false)
     private Instant createdAt;
 
+    private Instant expiresAt;
+
     public Url() {
     }
 
@@ -46,11 +48,15 @@ public class Url {
         return shortCode;
     }
 
-    public void setShortCode(String shortCode) {
-        this.shortCode = shortCode;
-    }
-
     public Instant getCreatedAt() {
         return createdAt;
+    }
+
+    public Instant getExpiresAt() {
+        return expiresAt;
+    }
+
+    public void setExpiresAt(Instant expiresAt) {
+        this.expiresAt = expiresAt;
     }
 }
