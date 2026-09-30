@@ -15,7 +15,7 @@ public class Url {
     @Column(nullable = false, length = 2048)
     private String originalUrl;
 
-    @Column(nullable = false, unique = true, length = 20)
+    @Column(unique = true, length = 20)
     private String shortCode;
 
     @Column(nullable = false, updatable = false)
@@ -46,6 +46,10 @@ public class Url {
 
     public String getShortCode() {
         return shortCode;
+    }
+
+    public void setShortCode(String shortCode) {
+        this.shortCode = shortCode;
     }
 
     public Instant getCreatedAt() {

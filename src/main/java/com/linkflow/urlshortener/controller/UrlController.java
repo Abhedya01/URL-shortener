@@ -7,8 +7,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @RestController
 public class UrlController {
@@ -27,10 +27,21 @@ public class UrlController {
 
     // GET ALL
     @GetMapping("/api/urls")
-    public ResponseEntity<List<UrlResponse>> getAllUrls() {
+    public ResponseEntity<Page<UrlResponse>> getAllUrls(Pageable pageable) {
 
         return ResponseEntity.ok(
-                urlService.getAllUrls()
+                urlService.getAllUrls(pageable)
+        );
+    }
+
+    @GetMapping("/api/urls/search")
+    public ResponseEntity<Page<UrlResponse>> searchUrls(
+            @RequestParam String query,
+            Pageable pageable
+    ) {
+
+        return ResponseEntity.ok(
+                urlService.searchUrls(query, pageable)
         );
     }
 
